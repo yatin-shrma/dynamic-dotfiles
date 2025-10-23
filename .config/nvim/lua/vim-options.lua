@@ -1,0 +1,12 @@
+vim.cmd("set number")
+vim.cmd("set expandtab")
+vim.cmd("set tabstop=4")
+vim.cmd("set softtabstop=4")
+vim.cmd("set shiftwidth=4")
+vim.cmd("set rnu")
+vim.diagnostic.config({virtual_text = {current_line = true}})
+vim.opt.smartindent = false
+vim.keymap.set("n", "<S-j>", "<C-w>j", { noremap = true, silent = true })
+vim.keymap.set("n", "<S-k>", "<C-w>k", { noremap = true, silent = true })
+vim.keymap.set("n", "<S-l>", "<C-w>l", { noremap = true, silent = true })
+vim.keymap.set("n", "<S-h>", "<C-w>h", { noremap = true, silent = true })
