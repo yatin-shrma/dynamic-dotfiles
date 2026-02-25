@@ -1,0 +1,32 @@
+# Font configuration (ensure you have a Nerd Font for Starship symbols)
+font-family = "JetBrainsMono Nerd Font"
+font-size = 14
+
+# Theme (Ghostty has many built-in)
+theme = "Catppuccin Mocha"
+
+# Window aesthetics
+window-decoration = true
+window-title-font-family = "system-ui"
+
+# Cursor styling
+cursor-style = block
+shell-integration = zsh
+quick-terminal-animation-duration = 0.2
+keybind = global:opt+space=toggle_quick_terminal
+
+# Transparency (0.0 to 1.0)
+background-opacity = 0.85
+background-blur-radius = 20
+
+# Full Width Quick Terminal setup
+quick-terminal-position = top
+quick-terminal-screen = main
+quick-terminal-autohide = true
+
+
+# new things
+window-padding-x = 15
+window-padding-y = 10
+window-padding-balance = true
+
