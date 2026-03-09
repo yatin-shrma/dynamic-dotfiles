@@ -70,7 +70,7 @@ detect_extensions = ['c', 'h']
 [custom.cpp]
 symbol = ' '
 style = 'bold fg:dark_blue'
-detect_extensions = ['cpp', 'hpp', 'cc', 'cxx']
+detect_extensions = ['cpp', 'hpp', 'cc', 'cxx', 'hxx']
 format = '[$symbol]($style) '
 
 [cmake]
