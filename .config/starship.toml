@@ -8,16 +8,13 @@ $git_branch\
 $git_status\
 $fill\
 $lua\
+$python\
 $aws\
 $golang\
 $haskell\
 $rust\
 $ruby\
 $c\
-${custom.cpp}\
-$cmake\
-${custom.make}\
-$python\
 $jobs\
 $cmd_duration\
 $nodejs\
@@ -25,11 +22,10 @@ $docker_context\
 $line_break\
 $character
 
-""" 
+"""
+
 add_newline = true
 palette = 'nord'
-scan_timeout = 10000
-command_timeout = 100000
 
 [directory]
 style = 'bold fg:dark_blue'
@@ -55,34 +51,6 @@ format = '([$all_status$ahead_behind]($style) )'
 
 [fill]
 symbol = ' '
-
-[conda]
-symbol = '🅒 '
-style = 'bold fg:green'
-format = 'via [$symbol$environment]($style) '
-ignore_base = false
-
-[c]
-style = 'bold fg:blue'
-symbol = ' '
-detect_extensions = ['c', 'h']
-
-[custom.cpp]
-symbol = ' '
-style = 'bold fg:dark_blue'
-detect_extensions = ['cpp', 'hpp', 'cc', 'cxx', 'hxx']
-format = '[$symbol]($style) '
-
-[cmake]
-symbol = '△ ' # You can also use ' ' if your font supports it
-style = 'bold blue'
-format = '[$symbol($version )]($style)'
-
-[custom.make]
-symbol = ' ' 
-style = 'bold fg:orange'
-detect_files = ['Makefile', 'makefile']
-format = '[$symbol]($style) '
 
 [python]
 style = 'teal'
