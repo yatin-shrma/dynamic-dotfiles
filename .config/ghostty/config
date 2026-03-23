@@ -30,3 +30,6 @@ window-padding-x = 15
 window-padding-y = 10
 window-padding-balance = true
 
+# Allow terminal applications to read/write to the system clipboard
+clipboard-read = allow
+clipboard-write = allow

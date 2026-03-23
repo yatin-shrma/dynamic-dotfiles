@@ -1,18 +1,14 @@
 #!/bin/bash
-# Aggregates read and write stats across all disks.
-# Guarantees an output of "R: 0K W: 0K" even when completely idle.
+# macOS native iostat does not split Read/Write natively. 
+# It provides total throughput in MB/s.
+# -w 1 (wait 1s) -c 2 (count twice to skip the historical boot average)
 
-iostat -d -k 1 1 | awk '
-BEGIN { read=0; write=0 }
-/^[a-zA-Z]/ {
-    # Ignore the header and virtual loop/optical drives
-    if ($1 != "Device" && $1 !~ /^loop/ && $1 !~ /^sr/) {
-        read += $3
-        write += $4
+iostat -w 1 -c 2 | awk '
+NR == 4 {
+    total = 0
+    # In macOS iostat, MB/s is always every 3rd column (3, 6, 9...)
+    for (i=3; i<=NF; i+=3) {
+        total += $i
     }
-}
-END {
-    # Added spaces for breathing room in the tmux bar
-    printf " R: %.0fK W: %.0fK ", read, write
+    printf "IO: %.1f MB/s", total
 }'
-
