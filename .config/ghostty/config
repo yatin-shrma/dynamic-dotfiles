@@ -5,6 +5,8 @@ font-size = 14
 # Theme (Ghostty has many built-in)
 theme = "Catppuccin Mocha"
 
+background = #000000
+
 # Window aesthetics
 window-decoration = true
 window-title-font-family = "system-ui"
