@@ -1,29 +1,14 @@
-return {
-  "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-
-    config = function()
-        local function transparent()
-            vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-            vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-            vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-            vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" })
-            vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none" })
-            --vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { bg = "none" }) -- Optional: makes the sidebar border line transparent too
-        end
-
-
-        vim.api.nvim_create_autocmd("ColorScheme", {
-            pattern = "*",
-            callback = transparent,
-        })
-
-
-        vim.cmd.colorscheme "catppuccin-mocha"
-    end
-
-}
+-- return {
+--   "catppuccin/nvim",
+--     name = "catppuccin",
+--     priority = 1000,
+--
+--     transparent_background = true,
+--     config = function()
+--         vim.cmd.colorscheme "catppuccin-mocha"
+--     end
+--
+-- }
 
 --return{
 --    "rebelot/kanagawa.nvim",
@@ -32,3 +17,30 @@ return {
 --        vim.cmd("colorscheme kanagawa-dragon")
 --    end
 --}
+--
+
+return {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    lazy = false, -- Ensures the colorscheme loads immediately on startup
+    config = function()
+        require("catppuccin").setup({
+            flavour = "mocha", -- Explicitly sets your preferred mocha flavor
+            transparent_background = true, -- Natively enables transparency for core UI & integrated statuslines
+            integrations = {
+                neotree = true,
+            },
+            -- Safe palette overrides for your custom NeoTree requirements
+            custom_highlights = function(colors)
+                return {
+                    NeoTreeNormal       = { bg = "none" },
+                    NeoTreeNormalNC     = { bg = "none" },
+                    NeoTreeWinSeparator = { bg = "none" },
+                }
+            end,
+        })
+
+        vim.cmd.colorscheme "catppuccin-mocha"
+    end
+}
